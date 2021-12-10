@@ -28,6 +28,12 @@ namespace MuziekSpelerLib.Domain
             _timer.Enabled = true;
             _timer.Start();
         }
+
+        ~Player()
+        {
+            if (_windowsMediaPlayer != null)
+                _windowsMediaPlayer.close();
+        }
             
         private void _timer_Tick(object sender, System.Timers.ElapsedEventArgs e)
         {
